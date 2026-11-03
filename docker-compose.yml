@@ -1,0 +1,18 @@
+services:
+  json-server:
+    image: clue/json-server
+    platform: linux/amd64  # Dodane, aby wymusić architekturę
+    container_name: json-server
+    ports:
+      - "3000:80"
+    volumes:
+      - ./data/db.json:/data/db.json
+    
+  nginx:
+    image: nginx:latest
+    container_name: nginx-server
+    ports:
+      - "8080:80"
+    volumes:
+      - ./app:/usr/share/nginx/html:ro
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf

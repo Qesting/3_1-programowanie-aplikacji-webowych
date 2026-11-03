@@ -1,0 +1,3 @@
+// rename to api.js and fill in the info
+export const key = ''
+export const endpoint = ''
